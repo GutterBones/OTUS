@@ -7,9 +7,11 @@ public class Main {
         System.out.println("Enter number of array elements: ");
         int[] numbers = buildInitialArr();
         System.out.print("Initial: ");
-        printRowArr(numbers);
+        //printRowArr(numbers);
+        shellSort(numbers);
         defaultSort(numbers);
         shellSort(numbers);
+        defaultSort(numbers);
     }
 
     public static int[] buildInitialArr() {
@@ -35,7 +37,7 @@ public class Main {
         Arrays.sort(array);
         time = System.nanoTime() - time;
         System.out.print("Fast sorted: ");
-        printRowArr(array);
+        //printRowArr(array);
         System.out.printf("Sort time: %,9.3f ms\n", time/1_000_000.0);
     }
 
@@ -51,7 +53,7 @@ public class Main {
         }
         time = System.nanoTime() - time;
         System.out.print("Shell sorted: ");
-        printRowArr(array);
+        //printRowArr(array);
         System.out.printf("Sort time: %,9.3f ms\n", time/1_000_000.0);
     }
 
@@ -59,7 +61,7 @@ public class Main {
         int length = array.length;
         for (int i = h;i < length;i++) {
             for (int j = i; j >= h;j = j - h){
-                if (array[j] < array[j-h]) {
+                if (array[j] < array[j - h]) {
                     int temp = array[j];
                     array[j] = array[j - h];
                     array[j - h] = temp;
